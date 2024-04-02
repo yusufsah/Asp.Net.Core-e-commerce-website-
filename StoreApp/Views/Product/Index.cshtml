@@ -1,0 +1,53 @@
+﻿@model List<Product>       
+@*  buradaki list dediğimiz için controllerda ToList   kullanıdk ama "IQueryable" deseykik gerek yoktu *@ 
+
+
+    <div class="row" >
+
+     <div class="col-md-3">
+        @await Component.InvokeAsync("CategoryMenuViewPartial")
+
+     </div>
+
+
+
+
+    <div class="col-md-9">
+
+        <div class="row my-3">
+            @foreach (Product prd in Model)
+            {
+
+                <partial name="ProductCardParital" model="@prd" />
+                
+
+            }
+        </div>
+
+
+    </div>
+
+    </div>
+
+   
+
+
+
+
+
+
+
+
+
+
+
+@* 
+<div>    @model List<StoreApp.Models.Product>                                     BU ŞEKİDEDE YAPARSAN ÇALIŞIR AMA   PARTİAL BAĞLI İLE APTIM  UNUTMA  // bu kısım bootscrap aeklemeden önceki  css siz sadece döngü için
+    <h3>@prd.ProductName</h3>
+
+    <p>@prd.Price)</p>
+    <p>
+        <a  href="/Product/Get/@prd.ProductId">  detaylara git </a>
+
+    </p>
+</div> *@

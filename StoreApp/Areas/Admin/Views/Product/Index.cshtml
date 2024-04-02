@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Product>
+@{
+    Layout = "_Layout";
+}
+<div class="text-center">
+
+    <div class="diaplay display-6">  ÜRÜNLER  </div>
+
+     <div class="d-flex justify-content-end my-3"  > 
+         
+      <a class="btn btn-outline-success" asp-action="Creat"> oluştur <i class="fa fa-plus"> </i></a>
+         
+     </div>
+
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>ÜRÜN ADI</th>
+                <th>FİYAT</th>
+
+                <th>OPERASYON</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th>@item.ProductId</th>
+                    <th> <img  width="50" src="@item.ImageUrl" alt="@item.ProductName" /></th>
+                    <th>@item.ProductName</th>
+                    <th>@item.Price.ToString("c")</th>
+                    
+                    <th>
+                        <div class="btn-group">
+
+                            <a class="btn btn-warning" asp-action="Update" asp-route-id="@item.ProductId"><i class="fa fa-edit" ></i> Güncelle</a>
+
+                            <a class="btn btn-info" target="_blank" asp-area="" asp-action="get" asp-controller="Product" asp-route-id="@item.ProductId"><i class="fa fa-search"></i> Görüntüle</a>
+
+                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.ProductId"><i class="fa fa-trash"></i>Ürünü Sil</a>
+
+                        </div>
+                    </th>
+                </tr>
+
+
+            }
+        </tbody>
+    </table>
+
+</div>
+
+
+
+
+
+
+
+
+@* @foreach (Product item in Model)
+{
+    <tr>
+        <th>@item.ProductId</th>
+        <th>@item.ProductName</th>
+        <th>@item.Price</th>
+        <th>.</th>
+    </tr>
+
+
+} *@

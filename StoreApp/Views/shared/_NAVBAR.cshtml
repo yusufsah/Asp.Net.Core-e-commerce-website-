@@ -1,0 +1,44 @@
+﻿
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">STORE APP</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"> 
+                  <a class="nav-link active" aria-current="page" asp-controller="Home" asp-action="Index"> home </a>
+                </li>
+                <li class="nav-item">
+                    
+                    <a class="nav-link" asp-controller="Product" asp-action="Index"> Ürünler(@await Component.InvokeAsync("Productsayısı")) </a>
+                </li>
+                <li class="nav-item">
+
+                    <a class="nav-link" asp-controller="Category" asp-action="Index"> Kategori </a>
+                </li>
+                <li class="nav-item">
+
+                    <a class="nav-link" asp-page="/Contact"> bağlantı </a>
+                </li>
+              
+            </ul>
+        </div>
+        <div class="navbar-nav">
+
+            <li class="nav-item"> <a target="_blank" class="nav-link active" aria-current="page" asp-area="" asp-page="/Cart">
+                    <i class="fa fa-cart-shopping"></i> Cart(@await Component.InvokeAsync("CartsummaryViewComponentsPartial"))
+                </a>
+            </li>
+        </div>
+
+
+        <div class="navbar-nav">
+
+            <li class="nav-item"> <a target="_blank" class="nav-link active" aria-current="page" asp-area="Admin" asp-controller="Dashboard" asp-action="Index"> Admin </a>  </li>
+        </div>
+        
+
+    </div>
+</nav>

@@ -1,0 +1,80 @@
+﻿@model ProductDtosForUpdate  
+
+@*//  burası  product tı biz dto geçince  böyle yaptık yapmak zorlunlu değil  *@
+
+<div class="text-center">
+
+    <div class="diaplay display-6">  ÜRÜNLER güncelle  </div>
+</div>
+
+
+<form method="post" asp-action="Update" enctype="multipart/form-data" >       
+
+    <div class="text-danger" asp-validation-summary="All"></div>
+
+
+
+      <diV class="form-group">
+      
+      <input type="hidden" asp-for="ProductId" />
+      </diV>
+
+      
+     <diV class="form-group">
+         <label asp-for="categoryId">    </label>
+
+
+        <select class="form-control"  asp-items="@ViewBag.categores" asp-for="categoryId" >        </select>    
+
+       @*  burası ömeli  burada  categoryid  ile bağlantı yapıp bu sayfasda eklettik
+
+        ve  öne öenlisi asf for ile de  categoryId yi  ilişkilendirdik  burası controllerda        *@
+
+     </diV>
+
+    <diV class="form-group">
+       <label asp-for="ProductName">    </label>
+
+      <input asp-for="ProductName" class="form-control" />
+      </diV>
+
+        <diV class="form-group">
+       <label asp-for="summary">    </label>
+
+      <input asp-for="summary" class="form-control" />
+      </diV>
+
+    <diV class="form-group my-3">
+        <label asp-for="Price">    </label>
+
+        <input asp-for="Price" class="form-control" />
+    </diV>
+
+
+    <div class="form-group my-3"  >
+        
+        <img class="rounded" width="100" src="@Model.ImageUrl" />
+    
+    </div>  @*  //BUNU UPDATE DE RESMİ GÖRMEK İÇİN    AMA UNUTMA SRCYE YAPMAN GERKELİ *@
+
+
+     <diV class="form-group my-3">
+        <label asp-for="ImageUrl">    </label>
+
+        <input type="file" name="file" class="form-control" />
+    </diV>
+
+    <diV class="form-group my-3">
+        
+        <div btn-group>
+       <button class="btn btn-primary" type="submit"> 
+           <i class="fa fa-save"></i>  
+           Güncelle
+          </button>
+          <a asp-action="Index" class="btn btn-outline-primary">
+              <i class="fa fa-list"></i>
+              ürün listesi  </a>
+    </diV>
+    
+    </diV>
+</form>
