@@ -20,6 +20,7 @@ namespace Entites.Dtos
 
         public String? summary { get; init; } = String.Empty; // özet
 
+       
         public String? ImageUrl { get; set; }  // bu set olucak unutma çünkü resim yüklicez
 
         public int? categoryId { get; init; }  // Foreign key

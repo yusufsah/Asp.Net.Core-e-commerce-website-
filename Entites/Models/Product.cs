@@ -27,5 +27,8 @@ namespace Entites.Models
         public Category? Category { get; set; } // navigation property
 
 
+        public bool  ShowCase { get; set; }
+
+
     }
 }

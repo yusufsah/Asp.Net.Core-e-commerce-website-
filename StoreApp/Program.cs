@@ -6,6 +6,7 @@ using Repositories;
 using Repositories.Contracts;
 using Services;
 using Services.Contract;
+using StoreApp.Infrastruckte.Extensions.extensions;
 using StoreApp.Models;
 
 
@@ -15,11 +16,20 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();   // biz ekledik
 builder.Services.AddRazorPages(); // biz ekledik
 
-builder.Services.AddDbContext<RepositoryContext>(Option => 
-{
-    Option.UseSqlServer(builder.Configuration.GetConnectionString("sqlConnection")) ; 
-}
-);
+
+
+
+
+//builder.Services.AddDbContext<RepositoryContext>(Option => // /// BU KISIM VERÝ BAÐLANTISI BUNU BAÞKA YERE TAÞIDIK GERKELÝ UNUTMA
+//{
+//    Option.UseSqlServer(builder.Configuration.GetConnectionString("sqlConnection")) ; 
+//}
+//);
+
+builder.Services.ConfigureDbContext(builder.Configuration);  // yukardaki baðlantý yerine ekledik ServiceExtensions
+
+
+
 
 builder.Services.AddDistributedMemoryCache();  // otur yönetim /session
 builder.Services.AddSession(Option =>{
@@ -71,7 +81,7 @@ app.UseEndpoints(endpoints => {
     endpoints.MapRazorPages(); // biz ekledik
 });
 
-
+app.ConfigureAndCheckMigration();    // bu migrations larýn otomatik yapýlmasýný saðlýcak kodunu extensoin kýsamýnda yazdýk
 
 
 

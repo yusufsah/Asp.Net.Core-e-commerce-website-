@@ -120,6 +120,9 @@ namespace Repositories.Migrations
                     b.Property<string>("ProductName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("ShowCase")
+                        .HasColumnType("bit");
+
                     b.Property<int?>("categoryId")
                         .HasColumnType("int");
 

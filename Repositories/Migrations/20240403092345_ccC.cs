@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Repositories.Migrations
 {
-    public partial class cCc : Migration
+    public partial class ccC : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -52,7 +52,8 @@ namespace Repositories.Migrations
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     summary = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    categoryId = table.Column<int>(type: "int", nullable: true)
+                    categoryId = table.Column<int>(type: "int", nullable: true),
+                    ShowCase = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {

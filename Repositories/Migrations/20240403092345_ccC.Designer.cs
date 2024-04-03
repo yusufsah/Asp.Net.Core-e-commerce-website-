@@ -12,8 +12,8 @@ using Repositories;
 namespace Repositories.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20240401120348_cCc")]
-    partial class cCc
+    [Migration("20240403092345_ccC")]
+    partial class ccC
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -121,6 +121,9 @@ namespace Repositories.Migrations
 
                     b.Property<string>("ProductName")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("ShowCase")
+                        .HasColumnType("bit");
 
                     b.Property<int?>("categoryId")
                         .HasColumnType("int");
