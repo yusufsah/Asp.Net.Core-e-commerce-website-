@@ -13,6 +13,8 @@ namespace Services.Contract
 
         IEnumerable<Product> GetAllProducts(bool trackChanges);
 
+        IQueryable<Product> GetAllshowcaseProduct(bool trackChanges);
+
         public Product? GetOneProduct(int id, bool trackChangrs);
 
         void createproduct(ProductDtosForinsertion productDto);  // burası Product yapmıştık sonra  dto ekleyince değiştirdim 

@@ -11,14 +11,16 @@ namespace Repositories.Contracts
     {
         IQueryable<Product> GetAllProducts(bool trackChanges);  //hepsini getir
 
+        IQueryable<Product> GetAllshowcaseProduct(bool trackChanges);  //bunu sorandan yazdık showcase ekledikten sonra // vitrine cıkıcak ürünlerin listesi  
+
         public Product? GetOneProduct(int id, bool trackChangrs);  // 1 tane getir
 
 
-        void  createproduct(Product product);
+        void  createproduct(Product product);  // oluştur
 
 
 
-        void DeleteOneProduct(Product product);
+        void DeleteOneProduct(Product product);  // 1 tane sil
 
 
         // update burda oluşturmadık service yazdım unutma 

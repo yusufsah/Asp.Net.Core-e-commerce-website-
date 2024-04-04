@@ -3,11 +3,21 @@
 
 
 <div class="col-sm-12 col-md-4  my-2">
+
 <div class="card" style="width: 18rem;">
+    <div class="card-header text-center">
+
+        @Model.ProductName
+    </div>
+
+
+
   <img src="@Model?.ImageUrl" class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title">@Model.ProductName</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <div class="card-text"> 
+          <div class="text-danger lead-2"> @Model?.Price</div>
+      </div>
+            <p class="card-text"> @Model?.summary</p>
 
    
       <div class="btn-group">
@@ -16,14 +26,14 @@
          <input type="hidden" asp-for="ProductId" />
          <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
 
-          <button type="submit" class="btn btn-outline-primary">
-               <i class="fa fa-cart-plus"></i>sepete ekle
+                    <button type="submit" class="btn btn-outline-secondary">
+               <i class="fa fa-cart-plus"></i>
             </button>
         </form>
 
-    <a class="btn btn-primary" asp-controller="Product" asp-action="get" asp-route-id="@Model.ProductId">
+    <a class="btn btn-outline-secondary" asp-controller="Product" asp-action="get" asp-route-id="@Model.ProductId">
 
-                <i class="fa-solid fa-arrow-right"></i>  detaylara git
+                <i class="fa-solid fa-arrow-right"></i>  
             </a>
             </div>
         </div>

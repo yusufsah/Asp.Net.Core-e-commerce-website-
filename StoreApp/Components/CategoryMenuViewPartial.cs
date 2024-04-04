@@ -15,7 +15,7 @@ namespace StoreApp.Components
 
         public IViewComponentResult Invoke()
         {
-            var categories = _manager.CategoryService.GetAllCategories(false).ToList();
+            var categories = _manager.CategoryService.GetAllCategories(false).ToList(); 
             return View(categories); // Burada IEnumerable<Category> türünde bir koleksiyon döndürüyoruz.
         }
     }

@@ -102,5 +102,14 @@ namespace Services
             return productdto;
 
         }
+        
+        //// /////////////////////////////////////////////////////////////////////
+      
+        public IQueryable<Product> GetAllshowcaseProduct(bool trackChanges)
+        {
+            var product = _manager.Product.GetAllshowcaseProduct(trackChanges);
+
+            return product;
+        }
     }
 }

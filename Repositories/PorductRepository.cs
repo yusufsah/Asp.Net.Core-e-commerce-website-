@@ -54,5 +54,15 @@ namespace Repositories
         {
             Update(product);
         }
+
+
+
+        ///////////////////////////////////////////////////////
+        ///
+
+        public IQueryable<Product> GetAllshowcaseProduct(bool trackChanges)  
+        {
+            return FindAll(trackChanges).Where(p => p.ShowCase.Equals(true));
+        }
     }
 }
