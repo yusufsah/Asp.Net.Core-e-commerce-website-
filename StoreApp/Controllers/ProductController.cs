@@ -1,4 +1,5 @@
 ﻿using Entites.Models;
+using Entites.RequestParameters;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Repositories;
@@ -22,13 +23,16 @@ namespace StoreApp.Controllers
         /// ///// // // /// // //    /// ///////////////////////////
 
 
-        public IActionResult Index()
+        public IActionResult Index(ProductRequestParameters p)
         {
-            var model = _Manger.ProductService.GetAllProducts(false).ToList(); // bunu unutma .ToList();  yoksa view da list değil  Ienumble kullanmak gerekir
-
+            
+            // var model = _Manger.ProductService.GetAllProducts(false).ToList(); // bunu unutma .ToList();  yoksa view da list değil  Ienumble kullanmak gerekir
+            var model = _Manger.ProductService.GetAllProductwithDetails(p).ToList(); // bunu yeni olarak ekledik 
             return View(model);
         }
+
         //
+
         public IActionResult get([FromRoute(Name ="id")]int id)  // te bir ürün almak istiyorum
         {
               var model = _Manger.ProductService.GetOneProduct(id, false);

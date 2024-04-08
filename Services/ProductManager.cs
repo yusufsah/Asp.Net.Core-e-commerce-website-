@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Entites.Dtos;
 using Entites.Models;
+using Entites.RequestParameters;
 using Repositories.Contracts;
 using Services.Contract;
 
@@ -111,5 +112,14 @@ namespace Services
 
             return product;
         }
+
+        public IEnumerable<Product> GetAllProductwithDetails(ProductRequestParameters p)
+        {
+            return _manager.Product.GetAllProductwithDetails(p);
+        }
+
+        /// ///////////////////////////////////////////////////////
+
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Entites.Dtos;
 using Entites.Models;
+using Entites.RequestParameters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,9 @@ namespace Services.Contract
 
         IEnumerable<Product> GetAllProducts(bool trackChanges);
 
-        IQueryable<Product> GetAllshowcaseProduct(bool trackChanges);
+        IQueryable<Product> GetAllshowcaseProduct(bool trackChanges);  // burası  IEnumerable olmalıydı
+
+        IEnumerable<Product> GetAllProductwithDetails(ProductRequestParameters p);  // ürünleri categrotrilerine göre veya getirmek için
 
         public Product? GetOneProduct(int id, bool trackChangrs);
 

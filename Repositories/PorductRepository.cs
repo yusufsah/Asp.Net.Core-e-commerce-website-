@@ -1,6 +1,9 @@
 ﻿using Entites.Models;
+using Entites.RequestParameters;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Update.Internal;
 using Repositories.Contracts;
+using Repositories.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Repositories
 {
-    public class PorductRepository : RepositoryBase<Product>,IProductRepository
+    public sealed class PorductRepository : RepositoryBase<Product>,IProductRepository
     {
         public PorductRepository(RepositoryContext context) : base(context)
         {
@@ -64,5 +67,32 @@ namespace Repositories
         {
             return FindAll(trackChanges).Where(p => p.ShowCase.Equals(true));
         }
+
+       
+        /// ////////////////////////////////////////////////////////////////////
+        
+
+
+        public IQueryable<Product> GetAllProductwithDetails(ProductRequestParameters p)
+        {
+
+            return _context.Products.FilterByCategoryId(p.categoryId);
+
+
+              // return p is null      // bu eski yol  ProductRepositoriesExtensions  yokken yaptığımız
+              //    ? _context.Products.Include(pr => pr.Category)
+             //   : _context.Products.Include(pr => pr.Category).Where(pr => pr.categoryId.Equals(p.categoryId));
+
+
+
+
+        }
+
+
+
+        /// ////////////////////////////////////////////////////////////////////////////
+
+
+
     }
 }

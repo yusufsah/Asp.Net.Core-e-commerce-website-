@@ -1,4 +1,5 @@
 ﻿using Entites.Models;
+using Entites.RequestParameters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,8 @@ namespace Repositories.Contracts
 
         IQueryable<Product> GetAllshowcaseProduct(bool trackChanges);  //bunu sorandan yazdık showcase ekledikten sonra // vitrine cıkıcak ürünlerin listesi  
 
+
+        IQueryable<Product> GetAllProductwithDetails(ProductRequestParameters p);  // ürünleri categrotrilerine göre veya getirmek için
         public Product? GetOneProduct(int id, bool trackChangrs);  // 1 tane getir
 
 

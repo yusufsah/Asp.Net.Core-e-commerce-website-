@@ -55,6 +55,7 @@ builder.Services.AddScoped<Cart>(c=> SessionCart.GetCart(c));  // model deki kar
 
 builder.Services.AddAutoMapper(typeof(Program)); // dto ekledik onun için package yükledikten sonra kullanýyoruz
 
+builder.Services.configureRouting(); //  link baðlantýsý küçük hatf olsun diye
 
 var app = builder.Build();
 app.UseStaticFiles();  // static dosyalarý kullan
@@ -82,7 +83,7 @@ app.UseEndpoints(endpoints => {
 });
 
 app.ConfigureAndCheckMigration();    // bu migrations larýn otomatik yapýlmasýný saðlýcak kodunu extensoin kýsamýnda yazdýk
-
+app.ConfigureLocalization();  // kültürel geniþtme para birinleri için türkiyeyi ayarladýk 
 
 
 

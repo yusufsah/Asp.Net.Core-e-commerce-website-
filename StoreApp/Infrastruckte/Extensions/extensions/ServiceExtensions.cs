@@ -19,5 +19,15 @@ namespace StoreApp.Infrastruckte.Extensions.extensions
         }
 
 
+        public static void configureRouting(this IServiceCollection services) 
+        {
+            services.AddRouting(options =>
+            {
+                options.LowercaseUrls = true;
+                options.AppendTrailingSlash = true;
+            });
+        }
+
+
     }
 }
