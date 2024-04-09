@@ -76,12 +76,15 @@ namespace Repositories
         public IQueryable<Product> GetAllProductwithDetails(ProductRequestParameters p)
         {
 
-            return _context.Products.FilterByCategoryId(p.categoryId);
+            return _context.Products.FilterByCategoryId(p.categoryId) // NORMALDE  BURDA BİTİYORDU AMA SEARCH ELDİĞİMİZ İÇİN ARTI EKLEME YAPTIK
+                                                    .FilterbySearch(p.SearchTerm)
+                                                    .FilterbyPrice(p.MinPrice,p.MaxPrice,p.isValiPrice);
+
 
 
               // return p is null      // bu eski yol  ProductRepositoriesExtensions  yokken yaptığımız
               //    ? _context.Products.Include(pr => pr.Category)
-             //   : _context.Products.Include(pr => pr.Category).Where(pr => pr.categoryId.Equals(p.categoryId));
+              //   : _context.Products.Include(pr => pr.Category).Where(pr => pr.categoryId.Equals(p.categoryId));
 
 
 
