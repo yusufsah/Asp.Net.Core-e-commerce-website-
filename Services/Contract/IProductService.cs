@@ -14,6 +14,8 @@ namespace Services.Contract
 
         IEnumerable<Product> GetAllProducts(bool trackChanges);
 
+        IEnumerable<Product> GetlastestProducts(int n,bool trackChanges);  // son eklene ürünleri almak için  // bunun tanı için repository ye inmedim
+
         IQueryable<Product> GetAllshowcaseProduct(bool trackChanges);  // burası  IEnumerable olmalıydı
 
         IEnumerable<Product> GetAllProductwithDetails(ProductRequestParameters p);  // ürünleri categrotrilerine göre veya getirmek için

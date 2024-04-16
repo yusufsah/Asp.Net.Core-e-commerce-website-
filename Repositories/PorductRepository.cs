@@ -78,7 +78,8 @@ namespace Repositories
 
             return _context.Products.FilterByCategoryId(p.categoryId) // NORMALDE  BURDA BİTİYORDU AMA SEARCH ELDİĞİMİZ İÇİN ARTI EKLEME YAPTIK
                                                     .FilterbySearch(p.SearchTerm)
-                                                    .FilterbyPrice(p.MinPrice,p.MaxPrice,p.isValiPrice);
+                                                    .FilterbyPrice(p.MinPrice,p.MaxPrice,p.isValiPrice)
+                                                    .topaginate(p.PageNumber,p.PageSize);
 
 
 

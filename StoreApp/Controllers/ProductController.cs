@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Repositories;
 using Repositories.Contracts;
 using Services.Contract;
+using StoreApp.Models;
 
 
 namespace StoreApp.Controllers
@@ -25,10 +26,26 @@ namespace StoreApp.Controllers
 
         public IActionResult Index(ProductRequestParameters p)
         {
-            
-            // var model = _Manger.ProductService.GetAllProducts(false).ToList(); // bunu unutma .ToList();  yoksa view da list değil  Ienumble kullanmak gerekir
-            var model = _Manger.ProductService.GetAllProductwithDetails(p).ToList(); // bunu yeni olarak ekledik 
-            return View(model);
+
+            // var model = _Manger.ProductService.GetAllProducts(false).ToList(); // bunu unutma .ToList();  yoksa view da list değil  Ienumble kullanmak gerekir // ilk bunu kullanıyorduk 
+            var model = _Manger.ProductService.GetAllProductwithDetails(p).ToList(); // bunu yeni olarak ekledik
+             // return View(model);  // eski  page eklemden öncesi
+            // bunu page ekledikten sonra yaptık 
+
+
+            var pagination = new Pagination()
+            {
+                CurrenPage = p.PageNumber,
+                ItemsPerPage = p.PageSize,
+                Totalitems = _Manger.ProductService.GetAllProducts(false).Count()
+
+              };
+            return View(new ProductListViewModel()
+            {
+                products = model,
+                pagination = pagination
+
+            });
         }
 
         //

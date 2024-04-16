@@ -54,5 +54,18 @@ namespace Repositories.Extensions
         }
 
 
+        // yukardaki eklenti hepsi kategegriler veya fiyat arama yapmak için ürün sayfasında
+        ///////////////////////////////
+
+
+
+        /// burdakiler ise sayfa işlemleri  için
+        /// 
+
+        public static IQueryable<Product> topaginate(this IQueryable<Product> products,int pageNumber, int pageSize)
+        { 
+            return products.Skip(((pageNumber-1)*pageSize)).Take(pageSize);
+        
+        }
     }
 }

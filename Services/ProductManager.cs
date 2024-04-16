@@ -113,12 +113,27 @@ namespace Services
             return product;
         }
 
+
+
+       
+        ///////////////////////////////////////////////////////////////////////////////
+       
+
         public IEnumerable<Product> GetAllProductwithDetails(ProductRequestParameters p)
         {
             return _manager.Product.GetAllProductwithDetails(p);
         }
 
-        /// ///////////////////////////////////////////////////////
+
+        /// ////////////////////////////////////////////////////////
+
+        public IEnumerable<Product> GetlastestProducts(int n, bool trackChanges) // bunun tanı için repository ye inmedim
+        {
+            return _manager.Product.FindAll(trackChanges)
+                                     .OrderByDescending(prd=>prd.ProductId).Take(n);
+        }
+
+      
 
 
     }

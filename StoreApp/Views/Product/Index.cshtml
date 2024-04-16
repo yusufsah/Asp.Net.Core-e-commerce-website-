@@ -1,4 +1,5 @@
-﻿@model List<Product>       
+﻿@model ProductListViewModel
+@* burası page yapadan önce List<Product> *@
 @*  buradaki list dediğimiz için controllerda ToList   kullanıdk ama "IQueryable" deseykik gerek yoktu *@ 
 
 
@@ -7,6 +8,7 @@
      <div class="col-md-3">
         @await Component.InvokeAsync("CategoryMenuViewPartial")
         @await Component.InvokeAsync("aaaaaa");
+        <div products="">  </div>
        
      </div>
 
@@ -16,13 +18,23 @@
     <div class="col-md-9">
 
         <div class="row my-3">
-            @foreach (Product prd in Model)
+            @foreach (Product prd in Model.products)    @* .products   yukarsıyı değiştirdiğm için yaptım o yoktu *@
             {
 
                 <partial name="ProductCardParital" model="@prd" />
                 
 
             }
+        </div>
+        <div>
+             <div page-model="@Model.pagination"  page-action="Index"
+              page-classes-enabled="true"
+              page-class="btn"
+              page-class-normal="btn-outline-dark"
+              page-class-selected="btn-primary"
+              class="btn btn-group" >
+
+             </div>
         </div>
 
 
